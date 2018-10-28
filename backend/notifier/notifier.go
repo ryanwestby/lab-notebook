@@ -19,8 +19,8 @@ func notifier(database *db.Database, notifyChannel <-chan bool) {
 	}
 	for {
 		<-notifyChannel
-		data := map[string][]db.Record{"results": database.GetRecords()}
-		client.Trigger("results", "results", data)
+		data := map[string][]db.Record{"notes": database.GetRecords()}
+		client.Trigger("notes", "notes", data)
 	}
 }
 func New(database *db.Database) Notifier {

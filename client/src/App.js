@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import ConnectedResultsTable from './ConnectedResultsTable';
-import NewResultsForm from './NewResultsForm';
+import ConnectedNotesTable from './ConnectedNotesTable';
+import NewNotesForm from './NewNotesForm';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <ConnectedResultsTable />
-        <NewResultsForm />
+        <ConnectedNotesTable />
+        <NewNotesForm />
       </div>
     );
   }

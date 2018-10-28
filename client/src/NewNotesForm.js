@@ -1,13 +1,13 @@
 import React from 'react';
 import { Form, Header, Segment, Button } from 'semantic-ui-react'
 
-export default class NewResultsForm extends React.Component {
+export default class NewNotesForm extends React.Component {
     state = {
         name: '',
-        time: ''
+        note: ''
     };
     onChangeName = this._onChangeName.bind(this);
-    onChangeTime = this._onChangeTime.bind(this);
+    onChangeNote = this._onChangeNote.bind(this);
     onSubmit = this._onSubmit.bind(this);
     render() {
         return (
@@ -20,8 +20,8 @@ export default class NewResultsForm extends React.Component {
                             <input placeholder='Name' value={this.state.name} onChange={this.onChangeName} />
                         </Form.Field>
                         <Form.Field>
-                            <label>Time</label>
-                            <input placeholder='Time' value={this.state.time} onChange={this.onChangeTime} />
+                            <label>Note</label>
+                            <input placeholder='Note' value={this.state.note} onChange={this.onChangeNote} />
                         </Form.Field>
                         <Button type='submit'>Submit</Button>
                     </Form>
@@ -34,17 +34,17 @@ export default class NewResultsForm extends React.Component {
             name: e.target.value
         });
     }
-    _onChangeTime(e) {
+    _onChangeNote(e) {
         this.setState({
-            time: e.target.value
+            note: e.target.value
         });
     }
     _onSubmit() {
         const payload = {
             name: this.state.name,
-            time: parseFloat(this.state.time)
+            note: this.state.note
         };
-        fetch('http://localhost:8080/results', {
+        fetch('http://localhost:8080/notes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ export default class NewResultsForm extends React.Component {
         });
         this.setState({
             name: '',
-            time: ''
+            note: ''
         });
     }
 }

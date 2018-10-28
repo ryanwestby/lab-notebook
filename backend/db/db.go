@@ -1,12 +1,12 @@
 package db
 
 type Record struct {
-	Name string  `json:"name"`
-	Time float32 `json:"time"`
+	Name string `json:"name"`
+	Note string `json:"note"`
 }
 
-func NewRecord(name string, time float32) Record {
-	return Record{name, time}
+func NewRecord(name, note string) Record {
+	return Record{name, note}
 }
 
 type Database struct {
